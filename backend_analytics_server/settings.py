@@ -131,3 +131,7 @@ CSRF_TRUSTED_ORIGINS = [
 ALLOWED_HOSTS = [
   "*",
 ]
+
+LOGIN_URL = '/login/'
+
+LOGIN_REDIRECT_URL = '/'
