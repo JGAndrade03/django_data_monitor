@@ -28,6 +28,10 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+API_URL = 'https://jsonplaceholder.typicode.com/posts'
+
+
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -36,7 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
-    "django.contrib.staticfiles"
+    "django.contrib.staticfiles",
     "dashboard",
 ]
 
