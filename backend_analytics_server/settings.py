@@ -26,9 +26,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-4-1ml@re8kwa&k16j5-=*vb*4o!4-vclc-jtk6(01$*vi=xntt"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+#ALLOWED_HOSTS = []
 
 
 API_URL = 'https://jsonplaceholder.typicode.com/posts'
@@ -49,12 +49,14 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # Agregar WhiteNoise al middleware (debe ir después de SecurityMiddleware)
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    
 ]
 
 ROOT_URLCONF = "backend_analytics_server.urls"
@@ -131,13 +133,18 @@ STATIC_URL = "static/"
 CSRF_TRUSTED_ORIGINS = [
   "https://*.app.github.dev", 
   "https://localhost:8000",
-  "http://127.0.0.1:8000"
+  "http://127.0.0.1:8000",
+  "https://*.up.railway.app",
 ]
 
 ALLOWED_HOSTS = [
-  "*",
+ '.up.railway.app'
 ]
 
 LOGIN_URL = '/login/'
 
 LOGIN_REDIRECT_URL = '/'
+
+STATIC_ROOT = BASE_DIR / 'assets'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
