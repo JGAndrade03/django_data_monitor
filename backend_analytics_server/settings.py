@@ -131,10 +131,11 @@ USE_TZ = True
 STATIC_URL = "static/"
 
 CSRF_TRUSTED_ORIGINS = [
+  "https://*.up.railway.app",
   "https://*.app.github.dev", 
   "https://localhost:8000",
   "http://127.0.0.1:8000",
-  "https://*.up.railway.app",
+ 
 ]
 
 ALLOWED_HOSTS = [
